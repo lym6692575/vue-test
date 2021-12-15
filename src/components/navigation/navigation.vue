@@ -1,27 +1,29 @@
 <template>
-  <div class="nav">
-    <span class="nav-title">导航</span>
-    <router-link to="/" class="nav-link">
-      <span>Vue2.*练习首页</span>
-    </router-link>
-    <router-link to="/V2THome" class="nav-link">
-      <span>Vue2.*文档练习2021-12-5</span>
-    </router-link>
-  </div>
+  <el-menu
+    router
+    mode="horizontal"
+    class="nav"
+    background-color="#545c64"
+    text-color="#fff"
+    active-text-color="#ffd04b"
+    :default-active="activeIndex"
+  >
+    <el-menu-item index="/">导航首页</el-menu-item>
+    <el-menu-item index="/V2THome">Vue2.*文档练习2021-12-5</el-menu-item>
+  </el-menu>
 </template>
 
 <script>
 export default {
-  name: "navigation",
-};
+  name: 'navigation',
+  computed: {
+    activeIndex() {
+      return '/'
+    },
+  },
+  data() {
+    return {}
+  },
+  methods: {},
+}
 </script>
-
-<style lang="sass" scoped>
-.nav
-  line-height: 50px
-  border-bottom: 1px solid #7e8c8d;
-  .nav-title
-    margin-right: 20px
-  .nav-link
-    margin-right: 20px
-</style>

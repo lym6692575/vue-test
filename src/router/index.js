@@ -10,6 +10,13 @@ import V2T_0005 from '../views/vue2test/test/v2t0005'
 import V2T_0006 from '../views/vue2test/test/v2t0006'
 import '../views/vue2test/test/index'
 
+// 冗余导航报错
+const originalPush = VueRouter.prototype.push
+
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch((err) => err)
+}
+
 Vue.use(VueRouter)
 
 const routes = [
